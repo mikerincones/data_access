@@ -29,16 +29,19 @@ public class PatientService {
 
     public PatientDTO getPatient(){
 
+        return patientRepository
     }
 
-//    public int addPatient(PatientDTO patient) {
-//        return patient;
-//    }
+    public int addPatient(PatientDTO patientDTO) {
+        return patientRepository.add(patientDTOMapper.dtoToEntity(patientDTO));
+    }
 
     public void deletePatient(int idDelete) {
         patientRepository.delete(idDelete);
     }
 
 
-
+    public void updatePatient(PatientDTO patientDTO) {
+        patientRepository.update(patientDTOMapper.dtoToEntity(patientDTO));
+    }
 }

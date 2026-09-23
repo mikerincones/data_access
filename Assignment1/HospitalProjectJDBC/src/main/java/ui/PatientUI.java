@@ -14,7 +14,6 @@ public class PatientUI {
         this.patientService = patientService;
     }
 
-
     public List<PatientDTO> getPatients() {
         return patientService.getPatients();
     }

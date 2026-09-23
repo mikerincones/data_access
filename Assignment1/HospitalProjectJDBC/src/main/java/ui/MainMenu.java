@@ -4,15 +4,9 @@ import common.Constants;
 import domain.model.PatientDTO;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
-import dao.model.Patient;
-import java.util.Scanner;
-//
 
-//final SeContainer container = initializer.initialize();
-//PatientUI patientUI = container.select(PatientUI.class).get();
-;
-//final SeContainer container2 = initializer.initialize();
-//MedicalRecordUI medicalRecordUI = container2.select(MedicalRecordUI.class).get();
+import java.time.LocalDate;
+import java.util.Scanner;
 
 public class MainMenu {
 
@@ -20,10 +14,10 @@ public class MainMenu {
         SeContainerInitializer initializer = SeContainerInitializer.newInstance();
         final SeContainer container = initializer.initialize();
         PatientUI patientUI = container.select(PatientUI.class).get();
-        final SeContainer container1 = initializer.initialize();
-        DoctorUI doctorUI = container1.select(DoctorUI.class).get();
-        final SeContainer container2 = initializer.initialize();
-        CredentialUI credentialUI = container2.select(CredentialUI.class).get();
+        DoctorUI doctorUI = container.select(DoctorUI.class).get();
+        CredentialUI credentialUI = container.select(CredentialUI.class).get();
+        MedRecordUI medRecordUI = container.select(MedRecordUI.class).get();
+
         Scanner sc = new Scanner(System.in);
         System.out.println(Constants.LOGIN_MENU);
         String username = sc.nextLine();
@@ -40,31 +34,22 @@ public class MainMenu {
                     case 1:
                         System.out.println("List of patients: " + patientUI.getPatients());
                         break;
-
                     case 2:
-//                        System.out.println("Add Patient");
-//                        PatientDTO patient= new PatientDTO();
-//                        patientUI.addPatient(patient);
-//                        break;
-
+                        System.out.println("Add Patient");
+                        System.out.println(patientUI.addPatient(new PatientDTO(0,"Miguel", LocalDate.parse("1993-09-21"),"652-854-857",1,"galachox","DAM2")));
+                        break;
                     case 3:
-//                        System.out.println("Update Patient");
-//                        PatientDTO patient2= new PatientDTO();
-//                        patientUI.updatePatient(patient2);
-//
-//                        break;
-
+                        System.out.println("Update Patient");
+                        patientUI.updatePatient(new PatientDTO(4,"Moon",LocalDate.parse("1995-11-07"),"656-756-827",0,"lunakono","DaniTeQuiero"));
+                        break;
                     case 4:
                         System.out.println("Insert PatientID");
-                        int id = sc.nextInt();
-                        patientUI.deletePatient(id);
+                        patientUI.deletePatient(sc.nextInt());
                         break;
-
                     case 5:
                         System.out.println("Get all Doctors");
                         System.out.println(doctorUI.getDoctors());
                         break;
-
                     case 6:
                         System.out.println("Get all MedRecords by patient");
                         break;
