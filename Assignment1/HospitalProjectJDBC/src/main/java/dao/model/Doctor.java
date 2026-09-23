@@ -9,6 +9,5 @@ public class Doctor {
     private String name;
     private String specialization;
     private String phone;
-
 }
 

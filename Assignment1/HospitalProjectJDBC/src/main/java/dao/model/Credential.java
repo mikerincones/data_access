@@ -3,9 +3,9 @@ package dao.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+@Data
+@AllArgsConstructor
 public class Credential {
-
-    @Data
-    @AllArgsConstructor
-
+    String username;
+    String password;
 }
