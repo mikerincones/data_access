@@ -16,15 +16,6 @@ public class JDBCPatientRepository implements PatientRepository {
         return patients;
     }
 
-//    @Override
-//    public Patient get(int id) {
-//        for (Patient patient : patients) {
-//            if (patient.getId() == id)
-//                return patient;
-//        }
-//        return null;
-//    }
-
     @Override
     public int add(Patient patient) {
         return 0;

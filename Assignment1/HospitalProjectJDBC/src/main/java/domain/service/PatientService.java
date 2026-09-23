@@ -1,9 +1,11 @@
 package domain.service;
+
 import dao.model.Patient;
 import dao.repositories.JDBCPatientRepository;
 import domain.mappers.PatientDTOMapper;
 import domain.model.PatientDTO;
 import jakarta.inject.Inject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,20 +22,19 @@ public class PatientService {
     public List<PatientDTO> getPatients() {
         List<Patient> patients = patientRepository.getAll();
         List<PatientDTO> patientsDTOs = new ArrayList<>();
-        for(Patient patient: patients){
-        PatientDTO patientsDTO = patientDTOMapper.entityToDto(patient);
-        patientsDTOs.add(patientsDTO);
+        for (Patient patient : patients) {
+            PatientDTO patientsDTO = patientDTOMapper.entityToDto(patient);
+            patientsDTOs.add(patientsDTO);
         }
         return patientsDTOs;
     }
 
-    public PatientDTO getPatient(){
-
-        return patientRepository
-    }
-
     public int addPatient(PatientDTO patientDTO) {
         return patientRepository.add(patientDTOMapper.dtoToEntity(patientDTO));
+    }
+
+    public void updatePatient(PatientDTO patientDTO) {
+        patientRepository.update(patientDTOMapper.dtoToEntity(patientDTO));
     }
 
     public void deletePatient(int idDelete) {
@@ -41,7 +42,4 @@ public class PatientService {
     }
 
 
-    public void updatePatient(PatientDTO patientDTO) {
-        patientRepository.update(patientDTOMapper.dtoToEntity(patientDTO));
-    }
 }

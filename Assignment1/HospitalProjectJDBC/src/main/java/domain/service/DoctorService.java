@@ -7,14 +7,14 @@ import jakarta.inject.Inject;
 import java.util.List;
 
 public class DoctorService {
-    private final JDBCDoctorRepository jdbcDoctorRepository;
+    private final JDBCDoctorRepository doctorRepository;
 
     @Inject
-    public DoctorService(JDBCDoctorRepository jdbcDoctorRepository) {
-        this.jdbcDoctorRepository = jdbcDoctorRepository;
+    public DoctorService(JDBCDoctorRepository doctorRepository) {
+        this.doctorRepository = doctorRepository;
     }
 
     public List<Doctor> getDoctors() {
-        return jdbcDoctorRepository.getAll();
+        return doctorRepository.getAll();
     }
 }

@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Data
 @AllArgsConstructor
-public class MedicalRecord {
+public class MedRecord {
     private int id;
     private int patient_id;
     private int doctor_id;
