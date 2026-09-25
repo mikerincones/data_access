@@ -21,12 +21,12 @@ public class PatientService {
 
     public List<PatientDTO> getPatients() {
         List<Patient> patients = patientRepository.getAll();
-        List<PatientDTO> patientsDTOs = new ArrayList<>();
+        List<PatientDTO> patientsDTOS = new ArrayList<>();
         for (Patient patient : patients) {
             PatientDTO patientsDTO = patientDTOMapper.entityToDto(patient);
-            patientsDTOs.add(patientsDTO);
+            patientsDTOS.add(patientsDTO);
         }
-        return patientsDTOs;
+        return patientsDTOS;
     }
 
     public int addPatient(PatientDTO patientDTO) {

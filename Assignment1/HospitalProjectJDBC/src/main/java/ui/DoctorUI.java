@@ -1,5 +1,5 @@
 package ui;
-import dao.model.Doctor;
+import domain.model.DoctorDTO;
 import domain.service.DoctorService;
 import jakarta.inject.Inject;
 import java.util.List;
@@ -12,7 +12,7 @@ public class DoctorUI {
         this.doctorService=doctorService;
     }
 
-    public List<Doctor> getDoctors(){
+    public List<DoctorDTO> getDoctors(){
         return doctorService.getDoctors();
     }
 

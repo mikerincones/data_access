@@ -1,6 +1,7 @@
 package ui;
 
 import common.Constants;
+import domain.model.MedRecordDTO;
 import domain.model.PatientDTO;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
@@ -51,18 +52,26 @@ public class MainMenu {
                         break;
                     case 6:
                         System.out.println("Get all MedRecords by patient");
+                        System.out.println("Insert patient ID:");
+                        int id = sc.nextInt();
+                        System.out.println(medRecordUI.getMedRecords(id));
                         break;
 
                     case 7:
                         System.out.println("Add MedRecord");
+                        System.out.println(medRecordUI.addMedRecord(new MedRecordDTO()));
                         break;
 
                     case 8:
                         System.out.println("Update MedRecord");
+                        medRecordUI.updateMedRecord(new MedRecordDTO());
                         break;
 
                     case 9:
                         System.out.println("Delete MedRecord");
+                        System.out.println("Insert MedRecord ID:");
+                        int idMedRecord = sc.nextInt();
+                        medRecordUI.deleteMedRecord(idMedRecord);
                         break;
 
                     case 10:

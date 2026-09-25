@@ -23,7 +23,10 @@ public class JDBCPatientRepository implements PatientRepository {
 
     @Override
     public void update(Patient patient) {
-
+        patients.stream().filter(item -> item.getId() == patient.getId()).findFirst().ifPresent(patient1 -> {
+                    //lo que queremos actualizar
+                }
+        );
     }
 
     @Override

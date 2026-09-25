@@ -3,6 +3,8 @@ import dao.model.MedRecord;
 import dao.repositories.JDBCMedRecordRepository;
 import domain.mappers.MedRecordDTOMapper;
 import domain.model.MedRecordDTO;
+import jakarta.inject.Inject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ public class MedRecordService {
     private final JDBCMedRecordRepository medRecordRepository;
     private final MedRecordDTOMapper medRecordDTOMapper;
 
+    @Inject
     public MedRecordService(JDBCMedRecordRepository medRecordRepository, MedRecordDTOMapper medRecordDTOMapper) {
         this.medRecordRepository = medRecordRepository;
         this.medRecordDTOMapper = medRecordDTOMapper;
@@ -17,12 +20,12 @@ public class MedRecordService {
 
     public List<MedRecordDTO> getAllByPatientId(int patientId) {
         List<MedRecord> medRecords = medRecordRepository.getAllById(patientId);
-        List<MedRecordDTO> medRecordDTOs = new ArrayList<>();
+        List<MedRecordDTO> medRecordDTOS = new ArrayList<>();
         for(MedRecord medRecord : medRecords){
             MedRecordDTO medRecordDTO = medRecordDTOMapper.entityToDto(medRecord);
-            medRecordDTOs.add(medRecordDTO);
+            medRecordDTOS.add(medRecordDTO);
         }
-        return medRecordDTOs;
+        return medRecordDTOS;
     }
 
     public int addMedRecord(MedRecordDTO medRecord) {

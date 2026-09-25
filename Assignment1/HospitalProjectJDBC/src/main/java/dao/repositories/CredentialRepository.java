@@ -1,5 +1,7 @@
 package dao.repositories;
 
-public interface CredentialRepository {
+import domain.model.CredentialDTO;
 
+public interface CredentialRepository {
+    CredentialDTO login(String username);
 }
