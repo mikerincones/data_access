@@ -10,7 +10,7 @@ public class JDBCMedRecordRepository implements MedRecordRepository {
 
 
     @Override
-    public List<MedRecord> getAll() {
+    public List<MedRecord> getAllById(int patientId) {
         return medRecords;
     }
 

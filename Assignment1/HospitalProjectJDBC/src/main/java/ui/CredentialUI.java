@@ -9,5 +9,5 @@ public class CredentialUI {
         this.credentialService = credentialService;
     }
 
-    public boolean login (String username,String password) {return credentialService.login();}
+    public boolean login (String username,String password) {return credentialService.login(username,password);}
 }

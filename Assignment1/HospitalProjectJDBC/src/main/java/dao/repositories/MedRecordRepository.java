@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface MedRecordRepository {
 
-    List<MedRecord> getAll();
+    List<MedRecord> getAllById(int patientId);
 
     int addMedRecord(MedRecord medRecord);
 

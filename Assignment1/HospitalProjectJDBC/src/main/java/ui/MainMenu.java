@@ -29,7 +29,6 @@ public class MainMenu {
             do {
                 System.out.println(Constants.MENU);
                 option = sc.nextInt();
-
                 switch (option) {
                     case 1:
                         System.out.println("List of patients: " + patientUI.getPatients());

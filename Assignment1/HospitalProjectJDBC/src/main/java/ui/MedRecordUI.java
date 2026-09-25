@@ -1,8 +1,6 @@
 package ui;
 
-import dao.model.MedRecord;
 import domain.model.MedRecordDTO;
-import domain.model.PatientDTO;
 import domain.service.MedRecordService;
 import jakarta.inject.Inject;
 
@@ -16,8 +14,8 @@ public class MedRecordUI {
         this.medRecordService = medRecordService;
     }
 
-    public List<MedRecordDTO> getMedRecords() {
-        return medRecordService.getMedRecords();
+    public List<MedRecordDTO> getMedRecords(int patientId) {
+        return medRecordService.getAllByPatientId(patientId);
     }
 
     public int addMedRecord(MedRecordDTO medRecord) {
