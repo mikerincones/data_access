@@ -9,10 +9,18 @@ import java.time.LocalDate;
 public class MedRecordDTOMapper {
 
     public MedRecord dtoToEntity(MedRecordDTO medRecordDTO) {
-        return new MedRecord(medRecordDTO.getId(),medRecordDTO.getIdPatient(),medRecordDTO.getIdDoctor(),medRecordDTO.getDescription(), LocalDate.parse(medRecordDTO.getDate()));
+        LocalDate date = null;
+        if (medRecordDTO.getDate() != null) {
+            date = LocalDate.parse(medRecordDTO.getDate());
+        }
+        return new MedRecord(medRecordDTO.getId(), medRecordDTO.getIdPatient(), medRecordDTO.getIdDoctor(), medRecordDTO.getDescription(), date);
     }
 
     public MedRecordDTO entityToDto(MedRecord medRecord) {
-        return new MedRecordDTO(medRecord.getId(),medRecord.getDiagnosis(),medRecord.getAdmission_date().toString(),medRecord.getPatient_id(), medRecord.getDoctor_id(), null);
+        String date = null;
+        if (medRecord.getAdmission_date() != null) {
+            date = medRecord.getAdmission_date().toString();
+        }
+        return new MedRecordDTO(medRecord.getId(), medRecord.getDiagnosis(),date, medRecord.getPatient_id(), medRecord.getDoctor_id(), null);
     }
 }
